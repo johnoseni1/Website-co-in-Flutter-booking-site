@@ -23,6 +23,8 @@ class UserModel {
       'firstName ': firstName,
       'secondName' : secondName,
     };
+
+    
   }
 
 }
