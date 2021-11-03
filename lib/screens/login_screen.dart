@@ -56,7 +56,10 @@ class _LoginScreenState extends State<LoginScreen> {
       controller: passwordController,
       obscureText: true,
       validator: (value) {
-        
+        RegExp regex = new RegExp(r'^.{6,}$');
+        if (value!.isEmpty) {
+          
+        }
       },
       onSaved: (value)
       {
