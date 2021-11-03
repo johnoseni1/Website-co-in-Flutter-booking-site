@@ -2,6 +2,7 @@ import 'package:book_now/screens/boookdomain.dart';
 import 'package:book_now/screens/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({ Key? key }) : super(key: key);
@@ -152,7 +153,11 @@ void signIn(String email, String password) async
 {
   if (_formkey.currentState!.validate()) 
   {
-    await _auth.signInWithEmailAndPassword(email: email, password: password);
+    await _auth
+    .signInWithEmailAndPassword(email: email, password: password)
+    .then((uid) => {
+      Fluttertoast.showToast(msg: "Login Succesfull!!!"),
+    });
   }
 }
 
