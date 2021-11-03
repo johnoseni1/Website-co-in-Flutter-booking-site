@@ -60,6 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
         if (value!.isEmpty) {
           return ("Your password is needed for login!!!");
         }
+
+        if (!regex.hasMatch(value)) {
+          return ("Please enter a valid password (Min. 6 characters");
+        }
       },
       onSaved: (value)
       {
