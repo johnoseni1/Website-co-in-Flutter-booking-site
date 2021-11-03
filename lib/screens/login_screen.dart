@@ -145,11 +145,15 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+
+
+void signIn(String email, String password) async 
+{
+  if (_formkey.currentState!.validate()) 
+  {
+    await _auth.signInWithEmailAndPassword(email: email, password: password);
+  }
 }
 
-
-void signIn(String email, String password) async {
-  if () {
-    
-  }
 }
