@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
       validator: (value) {
         RegExp regex = new RegExp(r'^.{6,}$');
         if (value!.isEmpty) {
-          
+          return ("Please enter your password");
         }
       },
       onSaved: (value)
