@@ -16,6 +16,13 @@ class UserModel {
     );
   }
 
-  
+  Map<String, dynamic> toMap(){
+    return {
+      'uid': uid,
+      'email': email,
+      'firstName ': firstName,
+      'secondName' : secondName,
+    };
+  }
 
 }
