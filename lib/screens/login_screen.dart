@@ -89,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
         minWidth: MediaQuery.of(context).size.width,
 
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          signIn(emailController.text, passwordController.text);
         },
         child: Text("Login", textAlign: TextAlign.center,
         style: TextStyle(
