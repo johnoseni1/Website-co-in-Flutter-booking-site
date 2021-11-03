@@ -25,7 +25,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: firstNameEditingController,
       keyboardType: TextInputType.emailAddress,
+            validator: (value) {
+        RegExp regex = new RegExp(r'^.{3,}$');
+        if (value!.isEmpty) {
+          return ("Your password is needed for login!!!");
+        }
 
+        if (!regex.hasMatch(value)) {
+          return ("Enter valid password (Min. 6 characters");
+        }
+      },
       onSaved: (value)
       {
         firstNameEditingController.text = value!;
@@ -207,7 +216,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   void signUp(String email, String password) async {
     if(_formKey.currentState!.validate())
     {
-      
+
     }
   }
 }
