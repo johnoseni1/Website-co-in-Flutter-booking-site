@@ -55,7 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
       autofocus: false,
       controller: passwordController,
       obscureText: true,
-
+      validator: (value) {
+        
+      },
       onSaved: (value)
       {
         passwordController.text = value!;
