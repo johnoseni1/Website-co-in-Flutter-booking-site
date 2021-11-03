@@ -146,3 +146,10 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+
+void signIn(String email, String password) async {
+  if () {
+    
+  }
+}
