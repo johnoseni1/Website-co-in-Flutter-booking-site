@@ -32,8 +32,9 @@ class _LoginScreenState extends State<LoginScreen> {
         {
           return ("Please enter your email");
         }
-
-        
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
+          return ("Please enter a valid Email");
+        }        
       },
       onSaved: (value)
       {
