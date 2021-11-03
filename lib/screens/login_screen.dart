@@ -27,7 +27,14 @@ class _LoginScreenState extends State<LoginScreen> {
       autofocus: false,
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
-      validator: ,
+      validator: (value) {
+        if (value!.isEmpty) 
+        {
+          return ("Please enter your email");
+        }
+
+        
+      },
       onSaved: (value)
       {
         emailController.text = value!;
