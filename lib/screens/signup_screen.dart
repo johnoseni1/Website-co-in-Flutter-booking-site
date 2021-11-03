@@ -28,7 +28,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             validator: (value) {
         RegExp regex = new RegExp(r'^.{3,}$');
         if (value!.isEmpty) {
-          return ("Your password is needed for login!!!");
+          return ("Full name is needed for login!!!");
         }
 
         if (!regex.hasMatch(value)) {
