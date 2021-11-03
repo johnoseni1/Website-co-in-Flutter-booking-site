@@ -157,6 +157,7 @@ void signIn(String email, String password) async
     .signInWithEmailAndPassword(email: email, password: password)
     .then((uid) => {
       Fluttertoast.showToast(msg: "Login Succesfull!!!"),
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomeScreen()));
     });
   }
 }
