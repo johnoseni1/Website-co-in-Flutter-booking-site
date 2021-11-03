@@ -32,7 +32,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         }
 
         if (!regex.hasMatch(value)) {
-          return ("Enter valid password (Min. 6 characters");
+          return ("Enter valid name (Min. 3 characters");
         }
       },
       onSaved: (value)
