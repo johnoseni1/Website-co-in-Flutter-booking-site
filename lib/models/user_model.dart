@@ -6,6 +6,16 @@ class UserModel {
 
   UserModel({this.uid, this.email, this.firstName, this.secondName});
 
+  factory UserModel.fromMap(map) 
+  {
+    return UserModel(
+      uid: map['uid'],
+      email: map['email'],
+      firstName: map['firstName'],
+      secondName: map['secondName'],
+    );
+  }
+
   
 
 }
