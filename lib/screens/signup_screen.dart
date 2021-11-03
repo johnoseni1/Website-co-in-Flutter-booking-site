@@ -53,7 +53,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: secondNameEditingController,
       keyboardType: TextInputType.emailAddress,
+              validator: (value) {
+        RegExp regex = new RegExp(r'^.{3,}$');
+        if (value!.isEmpty) {
+          return ("second name cannot be empty!!!");
+        }
 
+        if (!regex.hasMatch(value)) {
+          return ("Enter valid name (Min. 6 characters");
+        }
+      },
       onSaved: (value)
       {
         secondNameEditingController.text = value!;
