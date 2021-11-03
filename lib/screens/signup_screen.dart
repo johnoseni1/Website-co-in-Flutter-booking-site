@@ -203,4 +203,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ),
     );
   }
+
+  void signUp(String email, String password) async {
+    if(_formKey.currentState!.validate())
+    {
+      
+    }
+  }
 }
