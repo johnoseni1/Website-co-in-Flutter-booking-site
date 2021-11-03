@@ -1,5 +1,6 @@
 import 'package:book_now/screens/boookdomain.dart';
 import 'package:book_now/screens/signup_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,6 +17,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
 
+  final _auth = FirebaseAuth.instance;
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
       autofocus: false,
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
-
+      validator: ,
       onSaved: (value)
       {
         emailController.text = value!;
