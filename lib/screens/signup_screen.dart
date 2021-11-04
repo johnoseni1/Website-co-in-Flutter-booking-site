@@ -1,3 +1,4 @@
+import 'package:book_now/models/user_model.dart';
 import 'package:book_now/screens/login_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -271,6 +272,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   postDetailsToFirestore() async 
   {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    
+    User? user = _auth.currentUser;
+
+    UserModel userModel = UserModel();
+
+    userModel.email = user!.email;
+    userModel.uid = user.uid;
+    userModel.firstName = firstNameEditingController.text;
+    userModel.secondName = secondNameEditingController.text;
   }
 }
