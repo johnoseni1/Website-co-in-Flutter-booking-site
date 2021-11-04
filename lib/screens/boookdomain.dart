@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome"),
+        title: Text("Welcome ${loggedInUser.firstName} ${loggedInUser.secondName}"),
         centerTitle: true,
       ),
       body: Center(
