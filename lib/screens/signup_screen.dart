@@ -139,7 +139,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: confirmPasswordEditingController,
       keyboardType: TextInputType.emailAddress,
-
+      validator: (value)
+      {
+        if (confirmPasswordEditingController.text.length > 6 && passwordEditingController.text != value) {
+          return ("Passwords don't match");
+        }
+        return null;
+      },
       onSaved: (value)
       {
         confirmPasswordEditingController.text = value!;
@@ -245,7 +251,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   void signUp(String email, String password) async {
     if(_formKey.currentState!.validate())
     {
-
+      
     }
   }
 }
