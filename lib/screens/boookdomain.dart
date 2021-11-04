@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:book_now/models/user_model.dart';
+import 'package:book_now/screens/login_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -94,7 +95,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
               bookButton,
 
-              SizedBox(height: 15,)
+              SizedBox(height: 15,),
+
+              ActionChip(label: Text("Logout"), onPressed: (){
+                logout(context);
+              })
 
               
             ],
@@ -102,5 +107,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> logout(BuildContext context) async
+  {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 }
