@@ -151,7 +151,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       keyboardType: TextInputType.emailAddress,
       validator: (value)
       {
-        if (confirmPasswordEditingController.text.length > 6 && passwordEditingController.text != value) {
+        if (confirmPasswordEditingController.text != passwordEditingController.text ) {
           return ("Passwords don't match");
         }
         return null;
