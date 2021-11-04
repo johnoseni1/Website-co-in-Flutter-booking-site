@@ -1,3 +1,5 @@
+import 'package:book_now/models/user_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,6 +10,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+    User? user = FirebaseAuth.instance.currentUser;
+    UserModel userModel = UserModel();
 
     final _formkey = GlobalKey<FormState>();
 
