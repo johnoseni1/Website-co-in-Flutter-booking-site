@@ -178,7 +178,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
 
-        onPressed: () {},
+        onPressed: () {
+          signUp(emailEditingController.text, passwordEditingController.text);
+        },
         child: Text("SignUp", textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold
