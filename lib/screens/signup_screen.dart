@@ -1,4 +1,5 @@
 import 'package:book_now/models/user_model.dart';
+import 'package:book_now/screens/boookdomain.dart';
 import 'package:book_now/screens/login_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -280,5 +281,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     userModel.uid = user.uid;
     userModel.firstName = firstNameEditingController.text;
     userModel.secondName = secondNameEditingController.text;
+
+    await firebaseFirestore
+    .collection("users")
+    .doc(user.uid)
+    .set(userModel.toMap());
+    Fluttertoast.showToast(msg: "Account Created succesfully!!  :)");
+
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreen()), (route) => false);
   }
 }
