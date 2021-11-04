@@ -34,6 +34,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         if (!regex.hasMatch(value)) {
           return ("Enter valid name (Min. 3 characters");
         }
+        return null;
       },
       onSaved: (value)
       {
@@ -62,6 +63,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         if (!regex.hasMatch(value)) {
           return ("Enter valid name (Min. 6 characters");
         }
+        return null;
       },
       onSaved: (value)
       {
@@ -81,7 +83,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: emailEditingController,
       keyboardType: TextInputType.emailAddress,
-
+       validator: (value) {
+        if (value!.isEmpty) 
+        {
+          return ("Please enter your email");
+        }
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
+          return ("Please enter a valid Email");
+        }    
+        return null;    
+      },
       onSaved: (value)
       {
         emailEditingController.text = value!;
@@ -100,7 +111,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: passwordEditingController,
       keyboardType: TextInputType.emailAddress,
+      validator: (value) {
+        RegExp regex = new RegExp(r'^.{6,}$');
+        if (value!.isEmpty) {
+          return ("Your password is needed for login!!!");
+        }
 
+        if (!regex.hasMatch(value)) {
+          return ("Enter valid password (Min. 6 characters");
+        }
+      },
       onSaved: (value)
       {
         passwordEditingController.text = value!;
