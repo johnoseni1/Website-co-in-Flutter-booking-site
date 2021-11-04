@@ -1,5 +1,8 @@
 import 'package:book_now/screens/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({ Key? key }) : super(key: key);
@@ -9,6 +12,10 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+
+  final _auth = FirebaseAuth.instance;
+
+
 
   final _formKey = GlobalKey<FormState>();
 
@@ -251,7 +258,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   void signUp(String email, String password) async {
     if(_formKey.currentState!.validate())
     {
-      
+      await _auth.createUserWithEmailAndPassword(email: email, password: password)
+      .then((value) => {postDetailsToFirestore()})
+      .catchError((e)
+      {
+        Fluttertoast.showToast(msg: e!.message);
+      });
     }
+  }
+
+  postDetailsToFirestore() async 
+  {
+    
   }
 }
